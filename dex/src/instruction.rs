@@ -768,7 +768,7 @@ pub fn cancel_order(
 ) -> Result<Instruction, DexError> {
     let data = MarketInstruction::CancelOrderV2(CancelOrderInstructionV2 { side, order_id }).pack();
     let accounts: Vec<AccountMeta> = vec![
-        AccountMeta::new(*market, false),
+        AccountMeta::new_readonly(*market, false),
         AccountMeta::new(*market_bids, false),
         AccountMeta::new(*market_asks, false),
         AccountMeta::new(*open_orders_account, false),
